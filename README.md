@@ -1,5 +1,5 @@
 # 🚀 OS-Pulse Pro v3.1 (Cloud & Enterprise Edition)
-
+https://samaol.gumroad.com/l/os-pulse-pro
 أداة مراقبة وإدارة موارد أنظمة لينكس فائقة السرعة وخفيفة الوزن، مبنية بلغة **Modern C** لقراءة بيانات النواة (`/proc`) مباشرة دون أي استهلاك يُذكر لموارد السيرفر.
 
 ## ✨ المميزات الرئيسية (Key Features)
