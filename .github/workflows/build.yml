@@ -1,0 +1,35 @@
+name: Build OS-Pulse Pro Multi-Platform
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build on Linux
+      if: runner.os == 'Linux'
+      run: gcc -O3 os_pulse_pro_v2.c -o OS-Pulse-Pro-Linux
+
+    - name: Build on macOS
+      if: runner.os == 'macOS'
+      run: clang -O3 os_pulse_pro_v2.c -o OS-Pulse-Pro-macOS
+
+    - name: Build on Windows
+      if: runner.os == 'Windows'
+      run: gcc -O3 os_pulse_pro_v2.c -o OS-Pulse-Pro-Windows.exe -lpsapi
+
+    - name: Upload Binaries
+      uses: actions/upload-artifact@v4
+      with:
+        name: OS-Pulse-Pro-${{ runner.os }}
+        path: OS-Pulse-Pro-*
+
